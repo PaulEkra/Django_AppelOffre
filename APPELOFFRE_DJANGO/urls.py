@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from User.views import pageaccueil, pageaccueil2
+from User.views import pageaccueil, pageaccueil2, Connect
 
 urlpatterns = [
     path('', pageaccueil, name='pageaccueil'),
-    path('/inscription', pageaccueil2, name='pageaccueil2'),
+    path('connexion', Connect.as_view(), name='connexion'),
+    path('inscription', pageaccueil2, name='inscription'),
     path('admin/', admin.site.urls),
 ]
