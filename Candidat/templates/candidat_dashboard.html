@@ -1,0 +1,83 @@
+{% extends 'header_admin.html' %}
+
+{% load static %}
+{% block content %}
+
+    <body>
+    <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
+        {% include 'nav_bar_candidat.html' %}
+       <!-- Main Container -->
+      <main id="main-container">
+
+
+            <div class="content">
+                <div class="block block-rounded mb-0">
+                    <div class="block-content block-content-full">
+                      <div class="py-3 text-center">
+                        <h1 class="h3 fw-extrabold mb-1">
+                          BIENVENUE SUR VOTRE ESPACE CANDIDAT
+                        </h1>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- END Heading -->
+
+                  <!-- Progress Bars -->
+
+
+
+
+                      <!-- END Progress Animated -->
+                    </div>
+                    <div class="col-xl-6">
+                      <!-- Progress Mini -->
+                      <div class="block block-rounded">
+                        <div class="block-header block-header-default">
+                          <h3 class="block-title">
+                            Progress <small>Mini</small>
+                          </h3>
+                          <div class="block-options">
+                            <button type="button" class="js-bar-randomize btn-block-option" data-bs-toggle="tooltip" title="Randomize">
+                              <i class="fa fa-random"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="block-content">
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" style="width: 30%;"></div>
+                          </div>
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-danger" style="width: 50%;"></div>
+                          </div>
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-warning" style="width: 70%;"></div>
+                          </div>
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-info" style="width: 90%;"></div>
+                          </div>
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success" style="width: 100%;"></div>
+                          </div>
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-flat" style="width: 100%;"></div>
+                          </div>
+                          <div class="progress push" style="height: 8px;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-pulse" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END Progress Mini -->
+                    </div>
+      </main>
+
+      <!-- END Main Container -->
+{% include 'footer_admin.html' %}
+</div>
+
+
+        {% include 'scripts_admin.html' %}
+{% endblock %}
+</body>

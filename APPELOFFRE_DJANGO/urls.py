@@ -17,12 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from User.views import pageaccueil, pageaccueil2, Connect, inscription_user
+from User.views import pageaccueil, Connect, inscription_user, admin_dashboard, entreprise_dashboard, employer_dashboard,candidat_dashboard
 
 urlpatterns = [
     path('', pageaccueil, name='pageaccueil'),
     path('connexion', Connect.as_view(), name='connexion'),
-    path('inscription', pageaccueil2, name='inscription'),
-    path('inscription_user', inscription_user, name='inscription_user'),
+    path('inscription', inscription_user, name='inscription'),
+    path('Admin/',admin_dashboard,name='admin_dashboard'),
+    path('Entreprise/', entreprise_dashboard,name='entreprise_dashboard'),
+    path('Employer/', employer_dashboard,name='employer_dashboard'),
+    path('Candidat/', candidat_dashboard,name='candidat_dashboard'),
     path('admin/', admin.site.urls),
 ]
+
+
+

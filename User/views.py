@@ -13,36 +13,47 @@ class Connect(LoginView):
     def get_success_url(self) -> str:
         if self.request.user.roles.role == 'ADMIN':
 
-            return reverse('pageaccueil')
-        else:
-            return reverse('inscription')
+            return reverse('admin_dashboard')
+        elif self.request.user.roles.role == 'ENTREPRISE':
+            return reverse('entreprise_dashboard')
+        elif self.request.user.roles.role == 'EMPLOYER':
+            return reverse('employer_dashboard')
+        elif self.request.user.roles.role == 'CANDIDAT':
+            return reverse('candidat_dashboard')
         # elif self.request.user.roles.role == 'GESTIONNAIRE':
         #   return reverse('inscription')
 
 
 def inscription_user(request):
-    context = {}
+
     if request.method == 'POST':
-        if 'inscription' in request.POST:
-            form = UserRegistrationForm(request.POST)
-            if form.is_valid():
-                user = form.save(commit=False)
-                user.roles = 4
-                user.save()
-                return redirect('connexion')
-            else:
-
-                context['forms'] = form
-                return render(request, 'connexion.html', context=context)
-
-    form = UserRegistrationForm()
-    context['form'] = form
-    return render(request, 'connexion_user.html', context=context)
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            Utilisateur = form.save(commit=False)
+            role = request.POST.get('role')
+            Utilisateur.roles = role
+            Utilisateur.save()
+            return redirect('connexion')  # Redirection vers la page de connexion après inscription réussie
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'inscription.html', {'form': form})
 
 
 def pageaccueil(request):
     return render(request, 'index.html')
 
 
-def pageaccueil2(request):
-    return render(request, 'inscription.html')
+def admin_dashboard(request):
+    return render(request, 'admin_dashboard.html')
+
+
+def entreprise_dashboard(request):
+    return render(request, 'entreprise_dashboard.html')
+
+
+def employer_dashboard(request):
+    return render(request, 'employer_dashboard.html')
+
+
+def candidat_dashboard(request):
+    return render(request, 'candidat_dashboard.html')

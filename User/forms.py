@@ -26,10 +26,10 @@ class UserRegistrationForm(UserCreationForm):
         super(UserRegistrationForm, self).__init__(*args, **kwargs)
 
         self.fields['email'].error_messages = {
-            'unique': 'Ce nom d\'utilisateur existe déjà.',
+            'unique': 'Cet email existe déjà.',
             'required': 'Ce champ est obligatoire.'
         }
 
     class Meta:
         model = Utilisateur
-        fields = 'email', 'nom', 'prenom', 'password',
+        fields = ['email', 'nom', 'prenom', 'password1', 'password2']
