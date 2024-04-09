@@ -30,8 +30,8 @@ def inscription_user(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             Utilisateur = form.save(commit=False)
-            role = request.POST.get('role')
-            Utilisateur.roles = role
+            roles = request.POST.get('role')
+            Utilisateur.roles = Roles.objects.get(role=roles)
             Utilisateur.save()
             return redirect('connexion')  # Redirection vers la page de connexion après inscription réussie
     else:
